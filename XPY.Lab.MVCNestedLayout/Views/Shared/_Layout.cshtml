@@ -1,0 +1,70 @@
+﻿@{
+    Console.WriteLine("_Layout");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XPY.Lab.MVCNestedLayout</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            outline: 3px solid red;
+            outline-offset: -3px;
+        }
+
+        .main-menu {
+            background-color: lightpink;
+            height: 50px;
+        }
+
+            .main-menu ul {
+                margin: 0;
+                padding: 15px 5px 15px 5px;
+            }
+
+            .main-menu li {
+                display: inline-block;
+                margin: 0 5px 0 5px;
+            }
+
+        .main-content {
+            display: flex;
+            height: calc(100vh - 50px);
+            margin: 0;
+            padding: 0;
+            outline: 3px solid blue;
+            outline-offset: -3px;
+        }
+
+        .sub-menu {
+            width: 120px;
+            min-width: 120px;
+            background-color: lightblue;
+        }
+
+        .sub-content {
+            height: 100%;
+            flex: auto;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a asp-controller="FunA" asp-action="Action1">功能A</a>
+            </li>
+            <li>
+                <a asp-controller="FunB" asp-action="Action1">功能B</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+</body>
+</html>
